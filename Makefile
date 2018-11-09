@@ -43,8 +43,13 @@ export VERILATOR_ROOT
 VERILATOR = $(VERILATOR_ROOT)/bin/verilator
 endif
 
-default:
+default: clean
 	$(VERILATOR) $(WARN) -cc --exe +1800-2012ext+sv top.sv sim_main.cpp gui.cpp $(FLTK)
+	$(MAKE) -j 2 -C obj_dir -f Vtop.mk
+	obj_dir/Vtop
+
+pi: clean
+	$(VERILATOR) $(WARN) -Dpi -cc --exe +1800-2012ext+sv top.sv sim_main.cpp gui.cpp $(FLTK) -CFLAGS -Dpi
 	$(MAKE) -j 2 -C obj_dir -f Vtop.mk
 	obj_dir/Vtop
 
