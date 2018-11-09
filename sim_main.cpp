@@ -97,7 +97,7 @@ void display::draw() {
   // ss << setw(2) << (int)top->lcd_pc;
   // ss << " " << setw(8) << (int)top->lcd_instruction;
   // ss << " " << setw(2) << (int)top->lcd_WriteData;
-  ss << setw(16) << 0xfedcba9876543210;
+  ss << setw(16) << (long)top->LCD_A;
   fl_draw(ss.str().c_str(), x() + XMARGIN + 30, y() + 30);
 	
   // second line
@@ -107,7 +107,7 @@ void display::draw() {
   // ss << " " << setw(2) << (int)top->lcd_ALUResult;
   // ss << " " << setw(2) << (int)top->lcd_Result;
   // ss << " " << setw(2) << (int)top->lcd_ReadData;
-  ss << setw(16) << (long)top->LCD;
+  ss << setw(16) << (long)top->LCD_B;
   fl_draw(ss.str().c_str(), this->x() + XMARGIN + 30, y() + 70);
   
   int yy = y() + 100;
